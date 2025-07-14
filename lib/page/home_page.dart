@@ -1,4 +1,5 @@
 import 'package:ebook_online/models/book_model.dart';
+import 'package:ebook_online/widgets/navbar.dart';
 import 'package:ebook_online/widgets/search_and_profile.dart';
 import 'package:ebook_online/widgets/section_book.dart';
 import 'package:ebook_online/widgets/tabs.dart';
@@ -13,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedTab = 0;
+
   int _selectedNavItem = 0;
 
   @override
@@ -63,6 +65,19 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            left: 20,
+            right: 20,
+            child: CustomBottomNavBar(
+              selectedIndex: _selectedNavItem,
+              onItemTapped: (index) {
+                setState(() {
+                  _selectedNavItem = index;
+                });
+              },
             ),
           ),
         ],
